@@ -18,7 +18,7 @@ Your code must meet the following requirements:
 ## Submission
 You will deploy this application to Heroku. You will submit this project by uploading your project's URL to Google Classroom. The following articles will help you with the deployment process:
   * [Installing the Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
-  * [Build and deploy a Node Express server to Heroku in 10 steps](https://infinite-beyond-67513.herokuapp.com/)
+  * [Build and deploy a Node Express server to Heroku in 10 steps](https://medium.com/@grantspilsbury/build-and-deploy-a-node-express-server-to-heroku-in-10-steps-70c936ab15dc)
 
 ## Due Date
 Friday, March 19 at 6:30PM
