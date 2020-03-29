@@ -1,0 +1,29 @@
+{
+  "name": "problem-set-7_1",
+  "version": "1.0.0",
+  "description": "## Directions You are to make a simple To-Do List using the Express framework. Your project should fullfill the following UX requirements. Users should be able to:   * View a list of tasks   * Create a task   * Delete a task   * Update a task   * Mark a task complete",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": "v13.11.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/annedhyacinthe/problem-set-7_1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/annedhyacinthe/problem-set-7_1/issues"
+  },
+  "homepage": "https://github.com/annedhyacinthe/problem-set-7_1#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  }
+}

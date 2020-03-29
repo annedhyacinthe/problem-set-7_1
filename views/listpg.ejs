@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  </head>
+  <body>
+    
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+          <img class="fas fa-check-square fas fa-3x flip-h" width="112" height="28">
+        </a>
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a href="/list" class="navbar-item">
+            To-Do
+          </a>
+
+          <a href="/complete" class="navbar-item">
+            Completed
+          </a>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a href="/ " class="button is-primary">
+                <strong>Add Task</strong>
+              </a>
+              <a class="button is-light">
+                Delete List
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+<div class="tile is-ancestor">
+  <div class="tile is-parent is-9 is-vertical">
+    <article class="tile is-child">
+      <div class="content">
+        <% for (let id in list) { %>
+        <% if (list[id].isComplete === false) { %>
+        <% if (list[id].isUrgent === "true") { %>
+          <div class="card has-background-danger">
+        <%} else { %>
+          <div class="card ">
+        <% } %>
+      
+        <header class="card-header">
+          <div class="column is-two-quarter cardHeader">
+            Task: <%= list[id].name %>
+          </div>
+
+          <div class="column is-two-quarter">
+            Due Date: <%= list[id].dueDate %>
+          </div>
+            
+          <a href="#" class="card-header-icon" aria-label="more options">
+            <span class="icon">
+              <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+          </a>
+        </header>
+
+
+        <div class="card-content">
+            <div class="content">
+              <%= list[id].description %>
+            </div>
+        </div>
+
+
+        <footer class="card-footer">
+          <p class="card-footer-item">
+            <span>
+              <a class="button" href="/edit/<%= id %>" >
+                  Edit
+              </a>
+            </span>
+          </p> 
+
+          <form action="/complete/<%= id %>" method="post" class="card-footer-item">
+              <input class="button" type="submit" value="Complete">
+          </form>
+        
+          <form action="/delete/<%= id %>" method="post" class="card-footer-item">
+              <input class="button" type="submit" value="Delete">
+          </form>
+
+        </footer>
+        </div>
+        <% } %>
+        <% } %>
+        </div>
+      </div>
+</article>
+
+    <div class="tile is-vertical is-8"> 
+      <div class="tile">
+        <div class="tile is-parent is-vertical">
+          <article class="tile is-child notification">
+            <p class="title">Coming Up</p>
+            <% for (let id in list) { %>
+              <% let checked = checkDate(list[id].dueDate) %>
+              <% if (checked <= 5 && list[id].isComplete === false) { %>  
+            <p class="subtitle">Task: <%= list[id].name %></p>
+            <% } %>
+            <% } %>
+          </article>
+          <article class="tile is-child notification">
+            <p class="title">Urgent</p>
+            <% for (let id in list) { %>
+              <% if (list[id].isUrgent === "true" && list[id].isComplete === false) { %>  
+            <p class="subtitle">Task: <%= list[id].name %></p>
+            <% } %>
+            <% } %>
+          </article>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+</body>
+</html>
+
+
+
+
